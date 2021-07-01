@@ -40,11 +40,11 @@ async def start_command(client: Client, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except:
                 return
-        temp_msg = await message.reply("Please wait...")
+        temp_msg = await message.reply("⏳SEDANG MENGIRIM...")
         try:
             messages = await get_messages(client, ids)
         except:
-            await message.reply_text("Something went wrong..!")
+            await message.reply_text("LINK UDAH MATI (BELUM UPDATE)..!")
             return
         await temp_msg.delete()
 
@@ -94,14 +94,14 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    text = "<b>KALO MAU NONTON SUBSCRIBE DULU GOBLOG😁\n\nKindly Silakan Join Channel dulu bro.</b>"
+    text = "<b>KALO MAU NONTON SUBSCRIBE DULU. Owner : @Randovlsky\n\nGausah pelit Subscribe Goblog 🙄\n\nGrup Cari Teman - @grup_cari_teman</b>"
     message_text = message.text
     try:
         command, argument = message_text.split()
         text = text + f" <b>and <a href='https://t.me/{client.username}?start={argument}'>try again</a></b>"
     except ValueError:
         pass
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Channel", url = client.invitelink)]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("👉 SUBSCRIBE GOBLOG 🔓", url = client.invitelink)]])
     await message.reply(
         text = text,
         reply_markup = reply_markup,
