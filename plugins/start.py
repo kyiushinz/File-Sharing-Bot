@@ -73,7 +73,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 Randovlsky", callback_data = "about"),
+                    InlineKeyboardButton("🤠 Randovlsky", callback_data = "about"),
                     InlineKeyboardButton("🔒 Tutup", callback_data = "close")
                 ]
             ]
@@ -94,11 +94,11 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    text = "<b>⚠️ MAU NONTON SUBSCRIBE DULU.\n\n🛑Contact : @Randovlsky\n\nTerimakasih atas dukungan kalian...</b>"
+    text = "<b>⚠️ MAU NONTON SUBSCRIBE DULU.\n\n🛑 Contact : @Randovlsky\n\nTerimakasih atas dukungan kalian...</b>"
     message_text = message.text
     try:
         command, argument = message_text.split()
-        text = text + f" <b>and <a href='https://t.me/{client.username}?start={argument}'>try again</a></b>"
+        text = text + f" <b>and <a href='https://t.me/{client.username}?start={argument}'>.</a></b>"
     except ValueError:
         pass
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("SUBSCRIBE 🔓", url = client.invitelink)]])
